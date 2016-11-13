@@ -1,10 +1,11 @@
 <?php
-$databaseConnect = mysqli_connect ( "localhost", "user", "password", "database_name" );
+$databaseConnect = mysqli_connect ( "localhost", "root", "", "personal-cloud" );
 $max_filesize = 2097152; //2 MiB
-$absolute_path = $_SERVER['DOCUMENT_ROOT'] . 'Uploads/';
+$absolute_path = $_SERVER['DOCUMENT_ROOT'] . '/Uploads/';
 $allowed = array (
 				'png',
 				'jpg',
-				'gif' 
+				'gif',
+				'jpeg'
 		);
   ?>
