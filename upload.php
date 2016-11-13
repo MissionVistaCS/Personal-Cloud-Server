@@ -17,7 +17,9 @@ if (empty ( $_SESSION ['id'] )) {
 			$file_destination = $absolute_path . time() . '.' . $file_ext;
 			if (move_uploaded_file ( $file_tmp, $file_destination )) {
 				mysqli_query($databaseConnect, "INSERT INTO images (path, name) VALUES ('$file_destination', '$file_name')");
-				$success = "true";
+				$query = mysqli_query($databaseConnect, "SELECT timestamp FROM images WHERE path='$file_destination'");
+                                $row = mysqli_fetch_row($query);
+                                echo $row['0'];
 			}
 		}
 	}
