@@ -1,6 +1,6 @@
 <?php
 	session_start ();
-	include_once($_SERVER['DOCUMENT_ROOT'] . "/database.php");
+	include_once($_SERVER['DOCUMENT_ROOT'] . "/settings.php");
 	if (isset ( $_POST ['username'], $_POST ['login'] )) {
 		$usrname = strip_tags ( $_POST ['username'] );
 		$passwd = strip_tags ( $_POST ['password'] );
