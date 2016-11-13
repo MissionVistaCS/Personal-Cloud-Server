@@ -133,20 +133,21 @@ echo '
 	$Files = glob ( $Directory . $FileExt );
 	$VideoExt = array ('mp4', 'webm', 'ogg');
 	for($i = $DisplayImgs-9; $i < $DisplayImgs; $i ++) {
-	$FileExtTest = $Files[$i];
-	$FileExtTest = explode('.', $FileExtTest);
-	$FileExtTest = strtolower(end($FileExtTest));
-	if (in_array($FileExtTest, $VideoExt)) {
-	     echo '
-	          <tr align="center">
-		       <video src="' . $Files [$i] . '" controls="true" style="width:250px; height: inherit; padding: 15px;">
-		  </tr>';
-		} elseif (isset($Files [$i])) {
-		     echo '
-                          <tr align="center">
-                               <a class="crop_image" name="' . $i . '" href="' . $Files [$i] . '" target="_top"><img src="' . $Files [$i] . '" style="width: 250px; height: inherit; padding: 15px;"></a>
-			  </tr>';
-		} else { echo ''; }
+		if(isset($Files[$i])) {
+			$FileExtTest = $Files[$i];
+			$FileExtTest = explode('.', $FileExtTest);
+			$FileExtTest = strtolower(end($FileExtTest));
+			if (in_array($FileExtTest, $VideoExt)) {
+		    echo '
+		        <tr align="center">
+			       <video src="' . $Files [$i] . '" controls="true" style="width:250px; height: inherit; padding: 15px;">
+			  	</tr>';
+			} else {
+			     echo '<tr align="center">
+                            <a class="crop_image" name="' . $i . '" href="' . $Files [$i] . '" target="_top"><img src="' . $Files [$i] . '" style="width: 250px; height: inherit; padding: 15px;"></a>
+			  		</tr>';
+			}
+		}
 	}
 	$uid_p = $_REQUEST['id']-1;
 	$uid_n = $_REQUEST['id']+1;
@@ -154,12 +155,12 @@ echo '
             </table>
                 <div style="text-align: center; padding-top: 5px; padding-bottom: 10px;">';
 		                if($uid_p >= 1) {
-		                     echo "<a href='./index.php?id=" . $uid_p . "' target='_top'><- Previous</a>";
+		                     echo "<a href='./gallery.php?id=" . $uid_p . "' target='_top'><- Previous</a>";
                                 } else {
 				     echo "<a style='color: gray' target='_top'><- Previous</a>";
 				}
 				echo " | ";
-				echo "<a href='./index.php?id=" . $uid_n . "' target='_top'>Next -></a>";
+				echo "<a href='./gallery.php?id=" . $uid_n . "' target='_top'>Next -></a>";
 				echo '<br>
 				<br>
 				<a href="./upload_ui.php" target="_top">Click here</a> to add images.
