@@ -144,7 +144,7 @@ echo '
 		<h1>Gallery</h1>
 			<nav id="menu" style="font-family: Helvetica;">
 				<ul>
-					<li><a href="upload.php" target="_top" style="padding-right: 0px; text-align: center"><p>Upload</p></a></li>
+					<li><a href="upload_ui.php" target="_top"><p>Upload</p></a></li>
 					<li><a href="logout.php" target="_top" style="padding-right: 30px"><p>Logout</p></a></li>
 				</ul>
 			</nav>
