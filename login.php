@@ -1,7 +1,6 @@
 <?php
-	session_start ();
 	include_once($_SERVER['DOCUMENT_ROOT'] . "/settings.php");
-	if (isset ( $_POST ['username'], $_POST ['login'] )) {
+	if (isset ( $_POST ['username'])) {
 		$usrname = strip_tags ( $_POST ['username'] );
 		$passwd = strip_tags ( $_POST ['password'] );
 		$usrname = mysqli_real_escape_string ( $databaseConnect, $usrname );
@@ -13,6 +12,7 @@
 		$databaseUsername = $row [1];
 		$databasePassword = $row [2];
 		if ($usrname == $databaseUsername && password_verify ( $passwd, $databasePassword )) {
+			session_start ();
 			$_SESSION ['username'] = $usrname;
 			$_SESSION ['id'] = $uid;
 			echo "Success";
