@@ -1,3 +1,4 @@
 .htaccess
 .htpasswd
 database.php
+settings.php
