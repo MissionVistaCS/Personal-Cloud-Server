@@ -181,13 +181,11 @@ if (empty ( $_SESSION ['id'] )) {
 </head>
 <body>
 	<header>
-		<h1>
-			<i>Upload Images</i>
-		</h1>
+		<h1>Upload Images</h1>
 		<nav id="menu">
 			<ul>
 				<li><a href="./gallery.php?id=1" target="_top"><p>Gallery</p></a></li>
-                <li><a href="./logout.php" target="_top"><p>Logout</p></a></li>
+                		<li><a href="./logout.php" target="_top" style="padding-right: 30px"><p>Logout</p></a></li>
 			</ul>
 		</nav>
 	</header>
